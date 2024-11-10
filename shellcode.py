@@ -33,7 +33,3 @@ file_path = sys.argv[1]
 
 os.system("objdump -d " + file_path + "> dump.txt")
 lilpa_kkawyai()
-file_path = sys.argv[1]
-
-os.system("objdump -d " + file_path + "> dump.txt")
-get()
