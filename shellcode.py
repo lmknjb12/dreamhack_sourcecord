@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import sys, os
 
-def get():
+def lilpa_kkawyai():
     code = ''
 
     f = open("dump.txt", 'r')
@@ -17,12 +17,22 @@ def get():
             print("\n")
             code = ''
         print(line)
+    print("\n")
+    code = code.split()
+    code = ''.join(code)
+    result = [code[i:i+2] for i in range(0, len(code), 2)]
+    print(r"\x" + r"\x".join(result))
+    print("\n")
     f.close()
 
 if len(sys.argv) != 2:
     print("Use: shellcode Filename or -h")
     sys.exit()
 
+file_path = sys.argv[1]
+
+os.system("objdump -d " + file_path + "> dump.txt")
+lilpa_kkawyai()
 file_path = sys.argv[1]
 
 os.system("objdump -d " + file_path + "> dump.txt")
